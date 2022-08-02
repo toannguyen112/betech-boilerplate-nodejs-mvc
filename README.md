@@ -4,26 +4,26 @@
 </div>
 
 # express-sequelize-boilerplate
+
 A boilerplate for express.js.
 
-## Getting Started 
+## Getting Started
 
-```bash
-# Clone the repository
-git clone https://github.com/gadfaria/express-sequelize-boilerplate.git
-
-# Enter into the directory
 cd express-sequelize-boilerplate/
 
 # Install the dependencies
+
 yarn
 
 # Set the environment variables:
+
 cp .env.example .env
 
 # Running the boilerplate:
+
 yarn dev
-```
+
+````
 
 ## Configuration
 
@@ -45,23 +45,23 @@ Variables for the environment
 | AWS_BUCKET | Bucket name |
 
 
-## Commands for sequelize 
+## Commands for sequelize
 ```bash
 # Creates the database
-yarn sequelize db:create 
+yarn sequelize db:create
 
 # Drops the database
-yarn sequelize db:drop 
+yarn sequelize db:drop
 
 # Load migrations
-yarn sequelize db:migrate 
+yarn sequelize db:migrate
 
 # Undo migrations
-yarn sequelize db:migrate:undo:all 
+yarn sequelize db:migrate:undo:all
 
 # Load seeders
 yarn sequelize db:seed:all
-```
+````
 
 <h5 align="center">
   ☕ Code and Coffee
