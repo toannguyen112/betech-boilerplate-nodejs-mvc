@@ -1,53 +1,42 @@
 import Sequelize, { Model } from "sequelize";
 
-class User extends Model {
+class Tenant extends Model {
   static init(sequelize) {
     super.init(
       {
-        usr_id: {
+        id: {
           allowNull: false,
           primaryKey: true,
           type: Sequelize.STRING(20),
-          field: "usr_id",
+          field: "t_schema_id",
         },
 
-        usr_name: {
-          allowNull: false,
-          type: Sequelize.STRING(200),
-        },
-
-        usr_email: {
-          allowNull: false,
-          type: Sequelize.STRING(254),
-        },
-
-        usr_username: {
-          allowNull: false,
-          type: Sequelize.STRING(200),
-        },
-
-        usr_password: {
-          allowNull: false,
-          type: Sequelize.STRING(200),
-        },
-
-        is_super_admin: {
-          allowNull: false,
-          type: Sequelize.BOOLEAN,
-          default: true,
-        },
-
-        record_owner: {
+        t_schName: {
           allowNull: true,
           type: Sequelize.STRING(20),
         },
 
-        created_usr: {
+        t_schStart_date: {
           allowNull: true,
           type: Sequelize.STRING(20),
         },
 
-        last_modified_usr: {
+        t_schEnd_date: {
+          allowNull: true,
+          type: Sequelize.STRING(20),
+        },
+
+        t_sch_recordOwner: {
+          allowNull: true,
+          type: Sequelize.STRING(20),
+        },
+
+        t_sch_created_by: {
+          allowNull: true,
+          type: Sequelize.STRING(20),
+        },
+
+        t_sch_lastModified_by: {
           allowNull: true,
           type: Sequelize.STRING(20),
         },
@@ -55,19 +44,19 @@ class User extends Model {
         createdAt: {
           type: Sequelize.DATE,
           defaultValue: new Date(),
-          field: "created_date",
+          field: "t_sch_created_date",
         },
 
         updatedAt: {
           type: Sequelize.DATE,
           defaultValue: new Date(),
-          field: "last_modified_date",
+          field: "t_sch_lastModified_date",
         },
       },
       {
         sequelize,
         timestamps: true,
-        tableName: "users",
+        tableName: "tenants",
       }
     );
 
@@ -77,4 +66,4 @@ class User extends Model {
   static associate(models) {}
 }
 
-export default User;
+export default Tenant;
