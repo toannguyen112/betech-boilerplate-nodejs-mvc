@@ -66,3 +66,4 @@ yarn sequelize db:seed:all
 <h5 align="center">
   ☕ Code and Coffee
 </h5>
+# tn-loyalty
