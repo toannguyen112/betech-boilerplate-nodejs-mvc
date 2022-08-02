@@ -3,17 +3,14 @@
   <img src="https://expressjs.com/images/express-facebook-share.png" width="auto" height="64px">
 </div>
 
-# express-sequelize-boilerplate
-
-A boilerplate for express.js.
+# loyalty
 
 ## Getting Started
 
 ```bash
-# Clone the repository
 
 # Enter into the directory
-cd express-sequelize-boilerplate/
+cd loyalty/
 
 # Install the dependencies
 yarn
