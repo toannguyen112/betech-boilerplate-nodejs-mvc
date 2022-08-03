@@ -1,8 +1,3 @@
-<div style="display: inline">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/220px-Node.js_logo.svg.png" width="auto" height="64px">
-  <img src="https://expressjs.com/images/express-facebook-share.png" width="auto" height="64px">
-</div>
-
 # loyalty
 
 ## Getting Started

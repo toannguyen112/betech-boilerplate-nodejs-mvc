@@ -1,4 +1,4 @@
-export const Errors = {
+const Errors = {
   ADDRESS_ALREADY_EXISTS: {
     code: "ADDRESS_ALREADY_EXISTS",
     message: "Address already exists",
@@ -28,3 +28,4 @@ export const Errors = {
     message: "Internal server error",
   },
 };
+export default Errors;

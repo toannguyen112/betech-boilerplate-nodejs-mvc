@@ -48,7 +48,7 @@ module.exports = {
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.sequelize.transaction((t) => {
-      return Promise.all([queryInterface.removeColumn("benefit_types", "t_benfType_vchDefId", { transaction: t }), queryInterface.removeColumn("benefit_types", "t_benfType_vchDefId", { transaction: t }), queryInterface.removeColumn("benefit_types", "t_benfType_vchDefId", { transaction: t })]);
+      return Promise.all([queryInterface.removeColumn("benefit_types", "t_benfType_vchDefId", { transaction: t }), queryInterface.removeColumn("benefit_types", "t_benf_vchId", { transaction: t }), queryInterface.removeColumn("benefit_types", "t_benf_loyaPromId", { transaction: t })]);
     });
   },
 };
