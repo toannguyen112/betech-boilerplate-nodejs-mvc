@@ -9,25 +9,25 @@ class Tenant extends Model {
         primaryKey: true,
         autoIncrement: false,
     })
-    t_schema_id!: string;
+    t_schema_id?: string;
 
     @Column
-    t_schName!: string;
+    t_schName?: string;
 
     @Column
-    t_schStart_date!: Date;
+    t_schStart_date?: Date;
 
     @Column
-    t_schEnd_date!: Date;
+    t_schEnd_date?: Date;
 
     @Column
-    t_sch_recordOwner!: string;
+    t_sch_recordOwner?: string;
 
     @Column
-    t_sch_created_by!: string;
+    t_sch_created_by?: string;
 
     @Column
-    t_sch_lastModified_by!: string;
+    t_sch_lastModified_by?: string;
 
     @CreatedAt
     t_sch_created_date?: Date;
