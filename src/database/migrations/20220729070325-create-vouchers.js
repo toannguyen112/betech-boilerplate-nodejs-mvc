@@ -10,103 +10,84 @@ module.exports = {
         field: "t_vouchr_id",
       },
 
-      t_vouchrDef_name: {
+      t_vouchr_name: {
         allowNull: true,
         type: Sequelize.STRING,
       },
 
-      t_vouchrDef_vchDefType: {
+      t_vouchr_vchType: {
         allowNull: true,
         type: Sequelize.STRING,
       },
 
-      t_vouchrDef_Status: {
+      t_vouchr_status: {
         allowNull: true,
         type: Sequelize.STRING,
       },
 
-      t_vouchrDef_loyaPromId: {
-        allowNull: true,
-        type: Sequelize.STRING,
-      },
-
-      t_vouchrDef_vchType: {
-        allowNull: true,
-        type: Sequelize.STRING,
-      },
-
-      t_vouchrDef_productPromotion: {
-        allowNull: true,
-        type: Sequelize.STRING,
-      },
-
-      t_vouchrDef_disctPerc: {
+      t_vouchr_PtsToBurn: {
         allowNull: true,
         type: Sequelize.FLOAT,
       },
 
-      t_vouchrDef_disctAmt: {
+      t_vouchr_disctedVal: {
+        allowNull: true,
+        type: Sequelize.STRING,
+      },
+
+      t_vouchr_disctedPerc: {
         allowNull: true,
         type: Sequelize.FLOAT,
       },
 
-      t_vouchrDef_maxdisctAmt: {
+      t_vouchr_maxDisctedVal: {
         allowNull: true,
         type: Sequelize.FLOAT,
       },
 
-      t_vouchrDef_PtsToBurn: {
-        allowNull: true,
-        type: Sequelize.FLOAT,
-      },
-
-      t_vouchrDef_startDate: {
+      t_vouchr_startDate: {
         allowNull: true,
         type: Sequelize.DATE,
       },
 
-      t_vouchrDef_endDate: {
+      t_vouchr_endDate: {
         allowNull: true,
-        type: Sequelize.FLOAT,
+        type: Sequelize.DATE,
       },
 
-      t_vouchrDef_extendDate: {
+      t_vouchr_extDate: {
         allowNull: true,
-        type: Sequelize.FLOAT,
+        type: Sequelize.DATE,
       },
 
-      t_vouchrDef_vchDuration: {
+      t_vouchr_usedDate: {
         allowNull: true,
-        type: Sequelize.STRING,
+        type: Sequelize.DATE,
       },
 
-      t_vouchrDef_maxIssueVch: {
-        allowNull: true,
-        type: Sequelize.STRING,
-      },
-
-      t_vouchrDef_vchPrefix: {
+      t_vouchr_issuedSrc: {
         allowNull: true,
         type: Sequelize.STRING,
       },
 
-      t_vouchrDef_vchSuffix: {
+      t_vouchr_vchCode: {
         allowNull: true,
         type: Sequelize.STRING,
       },
 
-      t_vouchrDef_desc: {
+      t_vouchr_usedSrc: {
+        allowNull: true,
+        type: Sequelize.STRING,
+      },
+
+      t_vouchr_recordOwner: {
         allowNull: true,
         type: Sequelize.STRING,
       },
 
       // timestamp
-      t_vouchrDef_recordOwner: {
-        allowNull: true,
-        type: Sequelize.STRING,
-      },
 
-      t_vouchrDef_created_by: {
+      t_vouchr_created_by: {
         allowNull: true,
         type: Sequelize.STRING,
       },
@@ -114,10 +95,10 @@ module.exports = {
       createdAt: {
         type: Sequelize.DATE,
         defaultValue: new Date(),
-        field: "t_vouchrDef_created_date",
+        field: "t_vouchr_created_date",
       },
 
-      t_vouchrDef_lastModified_by: {
+      t_vouchr_lastModified_by: {
         allowNull: true,
         type: Sequelize.STRING,
       },
@@ -125,7 +106,7 @@ module.exports = {
       updatedAt: {
         type: Sequelize.DATE,
         defaultValue: new Date(),
-        field: "t_vouchrDef_lastModified_date",
+        field: "t_vouchr_lastModified_date",
       },
     }),
 
