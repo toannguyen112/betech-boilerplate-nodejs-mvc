@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
 import Tenant from "../../models/tenant.model";
 import TenantUser from "../../models/tenant_user.model";
-
 export default class TenantController {
     static async index(req: Request, res: Response) {
         try {

@@ -21,7 +21,6 @@ export default class ExpressService {
       console.log("[EXPRESS] Express initialized");
     } catch (error) {
       console.log("[EXPRESS] Error during express service initialization");
-
       throw error;
     }
   }

@@ -8,6 +8,10 @@ module.exports = {
           t_prodCate_id: "prod_cate_id_1",
           t_prodCate_code: "code 1",
         },
+        {
+          t_prodCate_id: "prod_cate_id_2",
+          t_prodCate_code: "code 1",
+        },
       ],
       {}
     );
