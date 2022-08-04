@@ -10,15 +10,6 @@ module.exports = {
         field: "t_vouchr_id",
       },
 
-      t_vouchr_vchDefId: {
-        allowNull: true,
-        type: Sequelize.STRING,
-        references: {
-          model: "loyalty_programs",
-          key: "t_loyalProg_id",
-        },
-      },
-
       t_vouchrDef_name: {
         allowNull: true,
         type: Sequelize.STRING,

@@ -1,7 +1,6 @@
 import express, { Request, Response } from "express";
 import LoyaltyProgram from "../models/loyalty_program.model";
 import Tenant from "../models/tenant.model";
-
 export default class LoyaltyController {
     static async index(req: Request, res: Response) {
         try {

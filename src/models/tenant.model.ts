@@ -1,12 +1,12 @@
-import { Table, Column, Model, CreatedAt, UpdatedAt } from "sequelize-typescript";
+import { Table, PrimaryKey, Column, Model, CreatedAt, UpdatedAt } from "sequelize-typescript";
 
 @Table({
     tableName: 'tenants',
     timestamps: true,
 })
 class Tenant extends Model {
+    @PrimaryKey
     @Column({
-        primaryKey: true,
         autoIncrement: false,
     })
     t_schema_id?: string;
@@ -34,7 +34,6 @@ class Tenant extends Model {
 
     @UpdatedAt
     t_sch_lastModified_date?: Date;
-
 }
 
 export default Tenant;
