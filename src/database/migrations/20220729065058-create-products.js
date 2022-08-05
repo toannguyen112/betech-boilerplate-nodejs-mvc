@@ -11,7 +11,7 @@ module.exports = {
         field: "t_prod_id",
       },
 
-      t_prod_prodCate_id: {
+      t_prod_prodCateId: {
         allowNull: true,
         type: Sequelize.STRING(200),
         references: {
@@ -20,7 +20,7 @@ module.exports = {
         },
       },
 
-      t_loyalProg_id: {
+      t_prod_loyID: {
         allowNull: true,
         type: Sequelize.STRING(200),
         references: {
@@ -29,7 +29,7 @@ module.exports = {
         },
       },
 
-      t_schema_id: {
+      t_prod_schemaID: {
         allowNull: true,
         type: Sequelize.STRING(200),
         references: {

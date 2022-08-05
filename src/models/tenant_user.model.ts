@@ -1,4 +1,4 @@
-import { Table, Column, Model, CreatedAt, UpdatedAt, ForeignKey, BelongsTo } from "sequelize-typescript";
+import { Table, Column, Model, CreatedAt, UpdatedAt, ForeignKey, BelongsTo, PrimaryKey } from "sequelize-typescript";
 import Tenant from "./tenant.model";
 
 @Table({
@@ -6,8 +6,8 @@ import Tenant from "./tenant.model";
     timestamps: true,
 })
 class TenantUser extends Model {
+    @PrimaryKey
     @Column({
-        primaryKey: true,
         autoIncrement: false,
     })
     t_usr_id?: string;
@@ -15,6 +15,9 @@ class TenantUser extends Model {
     @ForeignKey(() => Tenant)
     @Column
     t_schema_id?: string;
+
+    @Column
+    t_usrRole_id?: string;
 
     @Column
     t_usr_name?: string;
@@ -36,6 +39,9 @@ class TenantUser extends Model {
 
     @Column
     t_usr_created_by?: string;
+
+    @Column
+    t_usr_lastModified_by?: string;
 
     @CreatedAt
     t_usr_created_date?: Date;

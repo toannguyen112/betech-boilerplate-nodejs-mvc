@@ -4,7 +4,6 @@ import fs from "fs";
 let server;
 let routes: any[] = [];
 const routeFiles = fs.readdirSync(__dirname + "/../routes/").filter((file) => file.endsWith(".ts"));
-
 export default class ExpressService {
   static async init() {
     try {

@@ -10,7 +10,7 @@ class BenefitType extends Model {
     @Column({
         autoIncrement: false,
     })
-    t_vouchr_id?: string;
+    t_benfType_id?: string;
 
     @ForeignKey(() => LoyaltyProgram)
     @Column

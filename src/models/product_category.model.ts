@@ -1,18 +1,18 @@
-import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt } from "sequelize-typescript";
+import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, PrimaryKey } from "sequelize-typescript";
+import LoyaltyProgram from "./loyalty_program.model";
 import Tenant from "./tenant.model";
-
 @Table({
     tableName: 'product_categories',
     timestamps: true,
 })
 class ProductCategory extends Model {
+    @PrimaryKey
     @Column({
-        primaryKey: true,
         autoIncrement: false,
     })
     t_prodCate_id?: string;
 
-    @ForeignKey(() => ProductCategory)
+    @ForeignKey(() => LoyaltyProgram)
     @Column
     t_loyalProg_id?: string;
 

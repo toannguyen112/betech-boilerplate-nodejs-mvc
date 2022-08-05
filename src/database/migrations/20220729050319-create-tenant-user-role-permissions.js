@@ -25,127 +25,106 @@ module.exports = {
       },
 
       t_usr_access: {
-        allowNull: true,
         defaultValue: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_biz_access: {
-        allowNull: true,
         defaultValue: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_indi_access: {
-        allowNull: true,
         defaultValue: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_indiConsent_access: {
-        allowNull: true,
         defaultValue: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_indiPref_access: {
-        allowNull: true,
         defaultValue: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_prodCate_access: {
-        allowNull: true,
         defaultValue: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_prod_access: {
-        allowNull: true,
         defaultValue: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_loyaProg_access: {
-        allowNull: true,
         defaultValue: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_loyaCurr_access: {
-        allowNull: true,
         defaultValue: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_loyaMemb_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_loyalTier_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_tierRules_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_benefitType_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_benefit_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_voucherDef_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_voucher_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_loyaPromo_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_promoMemb_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_promoCurr_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_promoProd_access: {
-        allowNull: true,
         default: false,
         type: Sequelize.BOOLEAN,
       },
 
       t_manualTrx_access: {
-        allowNull: true,
         defaultValue: false,
         type: Sequelize.BOOLEAN,
       },

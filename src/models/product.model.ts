@@ -1,5 +1,7 @@
 import { Table, Column, Model, CreatedAt, UpdatedAt, BelongsTo, ForeignKey, PrimaryKey } from "sequelize-typescript";
+import LoyaltyProgram from "./loyalty_program.model";
 import ProductCategory from "./product_category.model";
+import Tenant from "./tenant.model";
 
 @Table({
     tableName: "products",
@@ -15,13 +17,15 @@ export default class Product extends Model {
 
     @ForeignKey(() => ProductCategory)
     @Column
-    t_prod_prodCate_id?: string;
+    t_prod_prodCateId?: string;
 
+    @ForeignKey(() => LoyaltyProgram)
     @Column
-    t_loyalProg_id?: string;
+    t_prod_loyID?: string;
 
+    @ForeignKey(() => Tenant)
     @Column
-    t_schema_id?: string;
+    t_prod_schemaID?: string;
 
     @Column
     t_prod_name?: string;
