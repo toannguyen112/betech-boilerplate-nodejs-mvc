@@ -51,7 +51,6 @@ class TenantUser extends Model {
 
     @BelongsTo(() => Tenant)
     tenant?: Tenant
-
 }
 
 export default TenantUser;

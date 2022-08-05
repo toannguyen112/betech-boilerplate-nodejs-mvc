@@ -55,6 +55,11 @@ module.exports = {
         type: Sequelize.STRING(200),
       },
 
+      t_usr_lastModified_by: {
+        allowNull: true,
+        type: Sequelize.STRING(200),
+      },
+
       createdAt: {
         type: Sequelize.DATE,
         defaultValue: new Date(),

@@ -77,7 +77,7 @@ module.exports = {
   },
   down: (queryInterface, Sequelize) => {
     return queryInterface.sequelize.transaction((t) => {
-      return Promise.all([queryInterface.removeColumn("vouchers", "t_usrRole_id", { transaction: t })]);
+      return Promise.all([queryInterface.removeColumn("vouchers", "t_vouchr_vchDefId", { transaction: t }), queryInterface.removeColumn("vouchers", "t_vouchr_loyaPromId", { transaction: t }), queryInterface.removeColumn("vouchers", "t_vouchr_loyaProgId", { transaction: t }), queryInterface.removeColumn("vouchers", "t_vouchr_loyaMemId", { transaction: t })]);
     });
   },
 };
