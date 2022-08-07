@@ -1,27 +1,29 @@
-import jwt from "jsonwebtoken"
-import { Request, Response, NextFunction } from "express"
-const JWT_KEY = process.env.JWT_SECRET || "123456"
-import debug, { IDebugger } from "debug"
-const log: IDebugger = debug("middleware:JWT")
-class JWT {
-    authenticateJWT(req: Request, res: Response, next: NextFunction) {
-        const authHeader = req.headers.authorization
-        if (authHeader && authHeader !== "null") {
-            // const token = authHeader.split(" ")[1];
-            log("auth Header", JWT_KEY)
-            jwt.verify(authHeader, JWT_KEY, (err: any, user: any) => {
-                if (err) {
-                    log("Error", err)
-                    return res
-                        .status(403)
-                        .send({ success: false, message: "Token Expired" })
-                }
-                req.user = user
-                next()
-            })
-        } else {
-            res.status(403).json({ success: false, message: "UnAuthorized" })
-        }
-    }
+import jwt, { Secret, JwtPayload } from 'jsonwebtoken';
+import { Request, Response, NextFunction } from 'express';
+import { env } from "process";
+
+export const SERVER_JWT_SECRET: Secret = env.SERVER_JWT_SECRET;
+
+export interface TenantRequest extends Request {
+    token: string | JwtPayload;
 }
-export default new JWT()
+
+export const auth = (req: Request, res: Response, next: NextFunction) => {
+
+    try {
+        const token = req.header('Authorization')?.replace('Bearer ', '');
+        console.log(token);
+
+
+        if (!token) {
+            throw new Error();
+        }
+
+        const decoded = jwt.verify(token, SERVER_JWT_SECRET);
+        (req as TenantRequest).token = decoded;
+
+        next();
+    } catch (err) {
+        res.status(401).send('Please authenticate');
+    }
+};

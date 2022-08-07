@@ -1,5 +1,7 @@
-import { Table, Column, Model, CreatedAt, UpdatedAt, ForeignKey, BelongsTo, PrimaryKey } from "sequelize-typescript";
+import { Table, Column, Model, CreatedAt, UpdatedAt, ForeignKey, BelongsTo, PrimaryKey, BeforeCreate, BeforeSave } from "sequelize-typescript";
+import Helper from "../utils/helpers";
 import Tenant from "./tenant.model";
+import bcrypt from 'bcrypt';
 
 @Table({
     tableName: 'tenant_users',
@@ -51,6 +53,17 @@ class TenantUser extends Model {
 
     @BelongsTo(() => Tenant)
     tenant?: Tenant
+
+    @BeforeCreate
+    static randomId(instance: TenantUser, options: any) {
+        instance.t_usr_id = `TUR${Helper.randomString(20)}`;
+    }
+
+    @BeforeSave
+    static async hashPassword(instance: TenantUser, options: any) {
+        const hashedPassword = await bcrypt.hash(instance.t_usr_Password, 8);
+        instance.t_usr_Password = hashedPassword;
+    }
 }
 
 export default TenantUser;
