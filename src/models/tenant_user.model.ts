@@ -31,7 +31,11 @@ class TenantUser extends Model {
     })
     t_usr_usrName!: string;
 
-    @Column
+    @Column({
+        validate: {
+            is: /^[0-9a-f]{64}$/i
+        }
+    })
     t_usr_Password!: string;
 
     @Column
