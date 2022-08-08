@@ -9,7 +9,8 @@ interface FoundUser {
     t_usr_Password: string;
 }
 
-export default class TenantController {
+export default class TenantUserController {
+
     async index(req: Request, res: Response) {
         try {
             const tenant_users = await TenantUser.findAll({});
@@ -70,5 +71,9 @@ export default class TenantController {
                 res.send({ msg: "Error" });
             }
         });
+    }
+
+    async profile(req: Request, res: Response) {
+        res.json({ msg: "Profile" });
     }
 }
