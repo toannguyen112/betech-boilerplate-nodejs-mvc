@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "app.ts",
   "repository": "https://github.com/gadfaria/express-sequelize-boilerplate.git",
-  "author": "toan",
+  "author": "wsp",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/app.ts"

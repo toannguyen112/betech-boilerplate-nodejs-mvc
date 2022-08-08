@@ -5,7 +5,7 @@ import Tenant from "./tenant.model";
     tableName: 'product_categories',
     timestamps: true,
 })
-class ProductCategory extends Model {
+export default class ProductCategory extends Model {
     @PrimaryKey
     @Column({
         autoIncrement: false,
@@ -48,4 +48,4 @@ class ProductCategory extends Model {
     t_prodCate_lastModified_date?: Date;
 }
 
-export default ProductCategory;
+
