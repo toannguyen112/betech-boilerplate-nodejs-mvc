@@ -30,10 +30,13 @@ export default class TenantUserController {
             const isMatch: boolean = bcrypt.compareSync(req.body.password, foundUser.t_usr_Password);
 
             if (isMatch) {
-                const token: string = jwt.sign({ user: foundUser }, env.SERVER_JWT_SECRET, { expiresIn: "1h" });
+                const token: string = jwt.sign({ tenant_user: foundUser }, env.SERVER_JWT_SECRET, { expiresIn: "1h" });
 
                 return res.status(200).json({
-                    user: foundUser,
+                    user: {
+                        t_usr_id: foundUser.t_usr_id,
+                        t_usr_usrName: foundUser.t_usr_usrName,
+                    },
                     token: token,
                 });
             } else {
