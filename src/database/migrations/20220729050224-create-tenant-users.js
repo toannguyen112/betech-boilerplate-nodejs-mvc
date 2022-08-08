@@ -71,6 +71,11 @@ module.exports = {
         defaultValue: new Date(),
         field: "t_usr_lastModified_date",
       },
+
+      tokens: {
+        allowNull: true,
+        type: Sequelize.JSON,
+      },
     });
   },
 

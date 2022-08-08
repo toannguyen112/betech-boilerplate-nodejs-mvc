@@ -4,6 +4,7 @@ import Helper from "../utils/helpers";
 import Tenant from "./tenant.model";
 import bcrypt from "bcrypt";
 import { env } from "process";
+import { Json } from "sequelize/types/utils";
 
 const jwt = require("jsonwebtoken");
 
@@ -16,47 +17,50 @@ class TenantUser extends Model {
     @Column({
         autoIncrement: false,
     })
-    t_usr_id?: string;
+    t_usr_id!: string;
 
     @ForeignKey(() => Tenant)
     @Column
-    t_schema_id?: string;
+    t_schema_id!: string;
 
     @Column
-    t_usrRole_id?: string;
+    t_usrRole_id!: string;
 
     @Column
-    t_usr_name?: string;
+    t_usr_name!: string;
 
     @Column
-    t_usr_usrName?: string;
+    t_usr_usrName!: string;
 
     @Column
-    t_usr_Password?: string;
+    t_usr_Password!: string;
 
     @Column
-    t_usr_Email?: string;
+    t_usr_Email!: string;
 
     @Column
-    t_usr_Phone?: string;
+    t_usr_Phone!: string;
 
     @Column
-    t_usr_recordOwner?: string;
+    t_usr_recordOwner!: string;
 
     @Column
-    t_usr_created_by?: string;
+    t_usr_created_by!: string;
 
     @Column
-    t_usr_lastModified_by?: string;
+    t_usr_lastModified_by!: string;
+
+    @Column
+    tokens!: Json;
 
     @CreatedAt
-    t_usr_created_date?: Date;
+    t_usr_created_date!: Date;
 
     @UpdatedAt
-    t_usr_lastModified_date?: Date;
+    t_usr_lastModified_date!: Date;
 
     @BelongsTo(() => Tenant)
-    tenant?: Tenant;
+    tenant!: Tenant;
 
     @BeforeCreate
     static randomId(instance: TenantUser, options: any) {
