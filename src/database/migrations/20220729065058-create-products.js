@@ -45,27 +45,27 @@ module.exports = {
 
       t_prod_size: {
         allowNull: true,
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(200),
       },
 
       t_prod_code: {
         allowNull: true,
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(200),
       },
 
       t_prod_sku: {
         allowNull: true,
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(200),
       },
 
       t_prod_gender: {
         allowNull: true,
-        type: Sequelize.STRING(10),
+        type: Sequelize.STRING(200),
       },
 
       t_prod_color: {
         allowNull: true,
-        type: Sequelize.STRING(50),
+        type: Sequelize.STRING(200),
       },
 
       t_prod_ageFrom: {

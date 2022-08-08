@@ -1,4 +1,5 @@
-import { Table, Column, Model, CreatedAt, UpdatedAt, BelongsTo, ForeignKey, PrimaryKey } from "sequelize-typescript";
+import { Table, Column, Model, CreatedAt, UpdatedAt, BelongsTo, ForeignKey, PrimaryKey, BeforeCreate } from "sequelize-typescript";
+import Helper from "../utils/helpers";
 import LoyaltyProgram from "./loyalty_program.model";
 import ProductCategory from "./product_category.model";
 import Tenant from "./tenant.model";
@@ -87,5 +88,10 @@ export default class Product extends Model {
     // relationship
     @BelongsTo(() => ProductCategory)
     product_category?: ProductCategory
+
+    @BeforeCreate
+    static randomId(instance: Product, options: any) {
+        instance.t_prod_id = `PRO${Helper.randomString(20)}`;
+    }
 }
 

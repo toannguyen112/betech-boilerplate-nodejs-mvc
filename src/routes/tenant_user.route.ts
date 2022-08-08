@@ -9,6 +9,6 @@ route.post("/tenant-user/login", new TenantUserController().login);
 route.post("/tenant-user/logout", auth, new TenantUserController().logout);
 route.post("/tenant-user/register", new TenantUserController().register);
 
-route.get("/tenant-user-profile", new TenantUserController().profile);
+route.get("/tenant-user-profile", auth, new TenantUserController().profile);
 
 export default route;

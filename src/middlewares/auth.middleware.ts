@@ -5,7 +5,7 @@ import TenantUser from '../models/tenant_user.model';
 
 export const SERVER_JWT_SECRET: Secret = env.SERVER_JWT_SECRET;
 
-export const auth = (req: Request, res: Response, next: NextFunction) => {
+export const auth = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const token = req.header('Authorization')?.replace('Bearer ', '');
 
@@ -14,9 +14,8 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
         }
 
         const decoded = jwt.verify(token, SERVER_JWT_SECRET);
-        const tenant = TenantUser.findOne({ where: { t_usr_id: decoded.tenant_user.t_usr_id } })
+        const tenant = await TenantUser.findOne({ where: { t_usr_id: decoded.tenant_user.t_usr_id } })
         req.tenant_user = tenant;
-
         next();
 
     } catch (err) {
