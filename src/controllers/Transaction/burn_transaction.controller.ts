@@ -1,10 +1,9 @@
 import express, { Request, Response } from "express";
-import LoyaltyProgram from "../models/loyalty_program.model";
-import Tenant from "../models/tenant.model";
-export default class LoyaltyController {
+import BurnTransaction from "../../models/mongodb_model/burn_transaction.model";
+export default class HomeController {
     static async index(req: Request, res: Response) {
         try {
-            const data = await LoyaltyProgram.findAll({ include: Tenant });
+            const data = await BurnTransaction.find({});
             return res.status(200).json(data);
         } catch (error) {
             console.log(error);

@@ -34,7 +34,7 @@ export default class TenantUserController {
 
                 return res.status(200).json({
                     user: foundUser,
-                    access_token: token,
+                    token: token,
                 });
             } else {
                 return res.status(500).send("Password is not correct");
