@@ -12,11 +12,9 @@ export const auth = (req: Request, res: Response, next: NextFunction) => {
 
     try {
         const token = req.header('Authorization')?.replace('Bearer ', '');
-        console.log(token);
-
 
         if (!token) {
-            throw new Error();
+            res.status(401).send('Not found token');
         }
 
         const decoded = jwt.verify(token, SERVER_JWT_SECRET);

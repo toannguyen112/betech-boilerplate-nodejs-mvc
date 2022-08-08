@@ -5,6 +5,7 @@ import Helper from "../utils/helpers";
     timestamps: true,
 })
 class Tenant extends Model {
+
     @PrimaryKey
     @Column({
         autoIncrement: false,
