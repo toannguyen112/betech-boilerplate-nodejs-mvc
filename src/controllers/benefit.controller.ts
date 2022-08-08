@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import Benefit from "../../models/benefit.model";
+import Benefit from "../models/benefit.model";
 export default class BenefitController {
     async index(req: Request, res: Response) {
         try {

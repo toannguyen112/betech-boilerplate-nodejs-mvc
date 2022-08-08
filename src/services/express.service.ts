@@ -16,8 +16,8 @@ export default class ExpressService {
         routes.push(route[routeName]);
       }
 
-      server.use(bodyParser.urlencoded({ extended: true }));
       server.use(compression());
+      server.use(bodyParser.urlencoded({ extended: true }));
       server.use(bodyParser.json());
       server.use(express.json());
       server.use(routes);

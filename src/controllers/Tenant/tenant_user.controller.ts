@@ -1,19 +1,18 @@
 
 import { Request, Response } from "express";
 import TenantUser from "../../models/tenant_user.model";
-import bcrypt from "bcrypt";
 
 export default class TenantUserController {
     async index(req: Request, res: Response) {
-        TenantUser.getListData(req, res);
+        new TenantUser().getListData(req, res);
     }
 
     async login(req: Request, res: Response) {
-        TenantUser.handleLogin(req, res);
+        new TenantUser().handleLogin(req, res);
     }
 
     async register(req: Request, res: Response) {
-        TenantUser.handleRegister(req, res);
+        new TenantUser().handleRegister(req, res);
     }
 
     async logout(req: Request, res: Response) {

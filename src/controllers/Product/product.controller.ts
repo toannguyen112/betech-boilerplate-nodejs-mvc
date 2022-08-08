@@ -6,6 +6,7 @@ export default class ProductController {
   async index(req: Request, res: Response) {
     try {
       const { t_schema_id } = req.tenant_user;
+
       const products = await Product.findAll({
         where: { t_prod_schemaID: t_schema_id },
         include: ProductCategory

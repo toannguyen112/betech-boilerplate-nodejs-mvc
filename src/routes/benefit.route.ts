@@ -1,5 +1,5 @@
 import { Router } from "express";
-import BenefitController from "../controllers/Benefit/benefit.controller";
+import BenefitController from "../controllers/benefit.controller";
 const route: Router = Router();
 
 route.get("/benefit", new BenefitController().index);
