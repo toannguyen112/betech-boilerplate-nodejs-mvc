@@ -8,15 +8,21 @@ export const SERVER_JWT_SECRET: Secret = env.SERVER_JWT_SECRET;
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const token = req.header('Authorization')?.replace('Bearer ', '');
-        console.log(token);
-
         if (!token) {
             res.status(401).send('Not found token');
         }
 
         const decoded = jwt.verify(token, SERVER_JWT_SECRET);
-        const tenant = await TenantUser.findOne({ where: { t_usr_id: decoded.tenant_user.t_usr_id } })
+        const tenant = await TenantUser.findOne({ where: { "t_usr_id": decoded.tenant_user.t_usr_id, }, });
+        const hasToken = tenant?.tokens.find((t: { token: string; }) => t.token === token);
+
+        if (!hasToken || !tenant) {
+            throw new Error();
+        }
+
         req.tenant_user = tenant;
+        req.token = token;
+
         next();
 
     } catch (err) {
