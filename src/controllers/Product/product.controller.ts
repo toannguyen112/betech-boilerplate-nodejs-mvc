@@ -14,7 +14,7 @@ export default class ProductController {
 
       return res.status(200).json(products);
     } catch (error) {
-      console.log(error);
+      res.status(500).send(error);
     }
   }
 
@@ -36,8 +36,7 @@ export default class ProductController {
 
       return res.status(200).json(data);
     } catch (error) {
-      console.log(error);
-      res.status(500);
+      res.status(500).send(error);
     }
   }
 

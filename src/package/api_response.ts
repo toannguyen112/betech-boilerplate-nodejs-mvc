@@ -1,5 +1,4 @@
 import { response } from "express";
-
 export default class ApiResponse {
     static success(data: any = [], message: string = "OK", status: number = 200) {
         return response.status(status).json({
@@ -8,6 +7,7 @@ export default class ApiResponse {
             data: data,
         });
     }
+
     static empty(message: string = "Not Found", status: number = 500) {
         return response.status(status).json({
             success: true,
