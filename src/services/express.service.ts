@@ -1,4 +1,5 @@
 import express from "express";
+import { env } from "process";
 import compression from "compression";
 import fs from "fs";
 import bodyParser from "body-parser";
@@ -21,7 +22,7 @@ export default class ExpressService {
       server.use(bodyParser.json());
       server.use(express.json());
       server.use(routes);
-      server.listen(process.env.SERVER_PORT);
+      server.listen(env.SERVER_PORT);
 
       console.log("[EXPRESS] Express initialized");
     } catch (error) {

@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
+import { env } from "process";
 export default class MongoDBService {
     static async init() {
-        await mongoose.connect(`${process.env.DB_CONN_STRING}/${process.env.DB_NAME}`)
+        await mongoose.connect(`${env.DB_CONN_STRING}/${env.DB_NAME}`)
             .catch(error => console.log(error));
-        console.log(`Successfully connected to database MongoDB: ${process.env.DB_NAME}`);
+        console.log(`Successfully connected to database MongoDB: ${env.DB_NAME}`);
     }
 };
 
