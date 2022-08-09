@@ -33,8 +33,8 @@ class TenantUser extends Model {
 
     @Column({
         validate: {
-            is: /^[0-9a-f]{64}$/i
-        }
+            is: /^[0-9a-f]{64}$/i,
+        },
     })
     t_usr_Password!: string;
 
@@ -96,11 +96,27 @@ class TenantUser extends Model {
             const isMatch: boolean = bcrypt.compareSync(req.body.password, foundUser.t_usr_Password);
 
             if (isMatch) {
+                const token = jwt.sign(
+                    {
+                        tenant_user: {
+                            t_usr_id: foundUser.t_usr_id,
+                            t_schema_id: foundUser.t_schema_id,
+                            t_usr_name: foundUser.t_usr_name,
+                        },
+                    },
+                    env.SERVER_JWT_SECRET,
+                    { expiresIn: env.SERVER_JWT_TIMEOUT }
+                );
 
-                const token: string = jwt.sign({ tenant_user: foundUser }, env.SERVER_JWT_SECRET, { expiresIn: env.SERVER_JWT_TIMEOUT });
+                let obj = {
+                    token: token,
+                };
 
-                foundUser.tokens = foundUser.tokens ? foundUser.tokens.concat({ token }) : [token];
+                foundUser.tokens = foundUser.tokens ? foundUser.tokens.concat(obj) : [obj];
+
                 foundUser.save();
+
+                console.log(req.tenant_user);
 
                 return res.status(200).json({
                     user: foundUser,
