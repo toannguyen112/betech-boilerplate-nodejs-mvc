@@ -7,7 +7,7 @@ export const SERVER_JWT_SECRET: Secret = env.SERVER_JWT_SECRET;
 
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token = req.header('Authorization')?.replace('Bearer ', '');
+        const token: string = req.header('Authorization')?.replace('Bearer ', '');
         if (!token) {
             res.status(401).send('Not found token');
         }

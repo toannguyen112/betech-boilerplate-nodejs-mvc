@@ -1,10 +1,11 @@
 import { Request, Response } from "express";
 import LoyaltyCurrency from "../../models/loyalty_currency.model";
+import ApiResponse from "../../package/api_response";
 export default class LoyaltyCurrencyController {
     async index(req: Request, res: Response) {
         try {
             const data = await LoyaltyCurrency.findAll();
-            return res.status(200).json(data);
+            ApiResponse.success(data);
         } catch (error) {
             return res.status(500);
         }

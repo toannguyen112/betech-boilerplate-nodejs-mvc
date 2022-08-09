@@ -109,9 +109,7 @@ class TenantUser extends Model {
                     { expiresIn: env.SERVER_JWT_TIMEOUT }
                 );
 
-                let obj = { token };
-
-                foundUser.tokens = foundUser.tokens ? foundUser.tokens.concat(obj) : [obj];
+                foundUser.tokens = foundUser.tokens ? foundUser.tokens.concat({ token }) : [{ token }];
                 foundUser.save();
 
                 return res.status(200).json({
@@ -149,7 +147,6 @@ class TenantUser extends Model {
     }
 
     async handleLogout(req: Request, res: Response) {
-
         try {
             req.tenant_user.tokens = req.tenant_user.tokens.filter((item: any) => {
                 return item.token !== req.token;
