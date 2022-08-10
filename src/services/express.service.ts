@@ -21,7 +21,10 @@ export default class ExpressService {
       server.use(bodyParser.urlencoded({ extended: true }));
       server.use(bodyParser.json());
       server.use(express.json());
-      server.use(routes);
+      server.get("/", (req, res) => {
+        res.json("test");
+      })
+      // server.use(routes);
       server.listen(env.SERVER_PORT || 8000);
 
       console.log("[EXPRESS] Express initialized");
