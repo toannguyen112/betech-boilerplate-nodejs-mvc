@@ -22,7 +22,7 @@ export default class ExpressService {
       server.use(bodyParser.json());
       server.use(express.json());
       server.use(routes);
-      server.listen(env.SERVER_PORT);
+      server.listen(env.SERVER_PORT || 8000);
 
       console.log("[EXPRESS] Express initialized");
     } catch (error) {
