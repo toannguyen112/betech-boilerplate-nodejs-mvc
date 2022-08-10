@@ -5,16 +5,7 @@ import path from "path";
 export default class SequelizeService {
   static async init() {
     try {
-      let sequelize = new Sequelize({
-        dialect: "postgres",
-        host: env.DATABASE_URL,
-        username: env.DB_USER,
-        password: env.DB_PASS,
-        database: env.DB_NAME,
-        define: {
-          timestamps: true,
-        },
-      });
+      let sequelize = new Sequelize("postgres://paspplauhrexta:e5ed2ad0ee09f07aec84b404facaa65cff4e858a59f5f97c70fc45803bccec06@ec2-3-225-110-188.compute-1.amazonaws.com:5432/d3b69np8olum6o");
 
       // init sequelize model
       sequelize.addModels([path.resolve(__dirname, `../models/`)]);
