@@ -41,6 +41,5 @@ export default class ProductController {
   }
 
   async update(req: Request, res: Response) { }
-
   async delete(req: Request, res: Response) { }
 }

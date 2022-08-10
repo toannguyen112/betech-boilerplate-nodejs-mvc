@@ -1,12 +1,12 @@
 {
-  "name": "express-sequelize-boilerplate",
+  "name": "loyalty",
   "version": "1.0.0",
   "main": "app.ts",
-  "repository": "https://github.com/gadfaria/express-sequelize-boilerplate.git",
+  "repository": "https://github.com/toannguyen112/loyalty.git",
   "author": "wsp",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon src/app.ts"
+    "dev": "nodemon backend/src/app.ts"
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",

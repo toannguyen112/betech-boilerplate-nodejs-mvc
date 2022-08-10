@@ -31,11 +31,7 @@ class TenantUser extends Model {
     })
     t_usr_usrName!: string;
 
-    @Column({
-        validate: {
-            is: /^[0-9a-f]{64}$/i,
-        },
-    })
+    @Column
     t_usr_Password!: string;
 
     @Column
@@ -130,8 +126,8 @@ class TenantUser extends Model {
             const { t_usr_usrName, t_usr_Password, t_usr_name, t_usr_Email, t_usr_Phone } = req.body;
             const t_password = await this.hashPassword(t_usr_Password);
 
-            await TenantUser.create({
-                t_schema_id: "SCHwKEbuMjETRJ80BIi3V41",
+            const data = await TenantUser.create({
+                t_schema_id: "SCHjww9ud21p1",
                 t_usr_name: t_usr_name,
                 t_usr_usrName: t_usr_usrName,
                 t_usr_Password: t_password,
@@ -139,7 +135,10 @@ class TenantUser extends Model {
                 t_usr_Phone: t_usr_Phone,
             });
 
-            return res.status(200).send("Register successfully");
+            return res.status(200).json({
+                message: "OK",
+                data,
+            });
         } catch (error) {
             console.log(error);
             res.status(500);
