@@ -1,11 +1,21 @@
-import { env } from "process";
+import dotenv from "dotenv";
 import { Sequelize } from "sequelize-typescript";
 import path from "path";
+dotenv.config();
 
 export default class SequelizeService {
   static async init() {
     try {
-      let sequelize = new Sequelize("postgres://paspplauhrexta:e5ed2ad0ee09f07aec84b404facaa65cff4e858a59f5f97c70fc45803bccec06@ec2-3-225-110-188.compute-1.amazonaws.com:5432/d3b69np8olum6o");
+      let sequelize = new Sequelize({
+        dialect: "postgres",
+        host: process.env.DB_HOST,
+        username: process.env.DB_USER,
+        password: process.env.DB_PASS,
+        database: process.env.DB_NAME,
+        define: {
+          timestamps: true,
+        },
+      });
 
       // init sequelize model
       sequelize.addModels([path.resolve(__dirname, `../models/`)]);
