@@ -7,7 +7,7 @@ export default class SequelizeService {
     try {
       let sequelize = new Sequelize({
         dialect: "postgres",
-        host: env.DB_HOST,
+        host: env.DATABASE_URL,
         username: env.DB_USER,
         password: env.DB_PASS,
         database: env.DB_NAME,
