@@ -1,12 +1,16 @@
-import dotenv from "dotenv";
-dotenv.config();
+require("dotenv").config();
+
+const host = process.env.DB_HOST
+const username = process.env.DB_USER
+const password = process.env.DB_PASSWORD
+const database = process.env.DB_NAME
 
 module.exports = {
   dialect: "postgres",
-  host: process.env.DB_HOST,
-  username: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
+  host,
+  username,
+  password,
+  database,
   define: {
     timestamps: true,
   },
