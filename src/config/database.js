@@ -1,5 +1,4 @@
-const dotenv = require("dotenv/config");
-dotenv.config();
+require("dotenv").config({ path: "loyalty/.env" });
 
 module.exports = {
   dialect: "postgres",
