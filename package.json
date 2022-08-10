@@ -2,12 +2,13 @@
   "name": "loyalty",
   "version": "1.0.0",
   "main": "app.ts",
+  "type": "module",
   "repository": "https://github.com/toannguyen112/loyalty.git",
   "author": "wsp",
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/app.ts",
-    "start" :"node src/app.ts"
+    "start": "node src/app.ts"
   },
   "dependencies": {
     "@types/bcrypt": "^5.0.0",
