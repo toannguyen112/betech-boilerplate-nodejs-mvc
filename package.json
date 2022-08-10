@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon src/app.ts",
-    "build": "tsc",
+    "build": "tsc && yarn start",
     "start": "node dist/app.js"
   },
   "dependencies": {

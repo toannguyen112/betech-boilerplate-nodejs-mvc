@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 import { Sequelize } from "sequelize-typescript";
 import path from "path";
 dotenv.config();
-
 export default class SequelizeService {
   static async init() {
     try {
