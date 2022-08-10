@@ -5,7 +5,6 @@
   "repository": "https://github.com/toannguyen112/loyalty.git",
   "author": "wsp",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "dev": "nodemon src/app.ts",
     "build": "tsc",
