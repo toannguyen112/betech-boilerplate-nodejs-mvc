@@ -101,11 +101,4 @@
     "skipLibCheck": true /* Skip type checking all .d.ts files. */
   },
   "include": ["src/**/*.ts", ".sequelizerc"],
-  "exclude": [
-    "node_modules",
-  ],
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node",
-  }
 }
