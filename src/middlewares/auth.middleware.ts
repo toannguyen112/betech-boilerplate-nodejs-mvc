@@ -9,7 +9,7 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
     try {
         const token: string = req.header('Authorization')?.replace('Bearer ', '');
         if (!token) {
-            res.status(401).send('Not found token');
+            return res.status(401).send('Not found token');
         }
 
         const decoded = jwt.verify(token, SERVER_JWT_SECRET);
@@ -17,7 +17,7 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
         const hasToken = tenant?.tokens.find((t: { token: string; }) => t.token === token);
 
         if (!hasToken || !tenant) {
-            throw new Error();
+            return res.status(500).send('Please authenticate');
         }
 
         req.tenant_user = tenant;
@@ -27,6 +27,6 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
 
     } catch (err) {
         console.log(err);
-        res.status(401).send('Please authenticate');
+        return res.status(401).send('Please authenticate');
     }
 };
