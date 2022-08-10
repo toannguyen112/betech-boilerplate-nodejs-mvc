@@ -12,7 +12,7 @@ const services = [expressService, sequelizeService];
     for (const service of services) {
       await service.init();
     }
-    console.log(`Server initialized localhost:${process.env.SERVER_PORT}`);
+    console.log(`Server initialized localhost:${process.env.PORT}`);
   } catch (error) {
     console.log(error);
     process.exit(1);

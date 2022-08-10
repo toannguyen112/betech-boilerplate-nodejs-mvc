@@ -25,7 +25,7 @@ export default class ExpressService {
         res.json("test");
       })
       // server.use(routes);
-      server.listen(env.SERVER_PORT || 8000);
+      server.listen(env.PORT || 8000);
 
       console.log("[EXPRESS] Express initialized");
     } catch (error) {
