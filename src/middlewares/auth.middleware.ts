@@ -1,32 +1,31 @@
-import jwt, { Secret } from 'jsonwebtoken';
+import jwt, { Secret } from "jsonwebtoken";
 import { env } from "process";
-import { Request, Response, NextFunction } from 'express';
-import TenantUser from '../models/tenant_user.model';
+import { Request, Response, NextFunction } from "express";
+import TenantUser from "../models/tenant_user.model";
 
 export const SERVER_JWT_SECRET: Secret = env.SERVER_JWT_SECRET;
 
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
     try {
-        const token: string = req.header('Authorization')?.replace('Bearer ', '');
+        const token: string = req.header("Authorization")?.replace("Bearer ", "");
         if (!token) {
-            return res.status(401).send('Not found token');
+            return res.status(401).send("Not found token");
         }
 
         const decoded = jwt.verify(token, SERVER_JWT_SECRET);
-        const tenant = await TenantUser.findOne({ where: { "t_usr_id": decoded.tenant_user.t_usr_id, }, });
-        const hasToken = tenant?.tokens.find((t: { token: string; }) => t.token === token);
+        const tenant = await TenantUser.findOne({ where: { t_usr_id: decoded.tenant_user.t_usr_id } });
+        const hasToken = tenant?.tokens.find((t: { token: string }) => t.token === token);
 
         if (!hasToken || !tenant) {
-            return res.status(500).send('Please authenticate');
+            return res.status(500).send("Please authenticate");
         }
 
         req.tenant_user = tenant;
         req.token = token;
 
         next();
-
     } catch (err) {
         console.log(err);
-        return res.status(401).send('Please authenticate');
+        return res.status(401).send("Please authenticate");
     }
 };
