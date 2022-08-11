@@ -6,7 +6,7 @@ const route = Router();
 
 route.get("/products", auth, new ProductController().index);
 route.post("/products/create", auth, new ProductController().create);
-route.put("/products/update:id", auth, new ProductController().update);
-route.delete("/products/delete:id", auth, new ProductController().delete);
+route.put("/products/update/:id", auth, new ProductController().update);
+route.delete("/products/delete/:id", auth, new ProductController().delete);
 
 export default route;
