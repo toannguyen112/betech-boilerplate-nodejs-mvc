@@ -13,7 +13,6 @@ export default class LoyaltyProgramController {
         } catch (error) {
             return res.status(500).send(error);
         }
-
     }
 
     async create(req: Request, res: Response) {
@@ -31,9 +30,12 @@ export default class LoyaltyProgramController {
         try {
             const { t_schema_id } = req.tenant_user;
             const { id, body } = req.params;
-            const data = await LoyaltyProgram.update({ body }, {
-                where: { t_prod_id: id, t_prod_schemaID: t_schema_id }
-            });
+            const data = await LoyaltyProgram.update(
+                { body },
+                {
+                    where: { t_loyalProg_id: id, t_schema_id },
+                }
+            );
 
             return res.status(200).json({ message: "OK", data });
         } catch (error) {
@@ -46,11 +48,11 @@ export default class LoyaltyProgramController {
             const { t_schema_id } = req.tenant_user;
             const { id } = req.params;
             await LoyaltyProgram.destroy({
-                where: { t_prod_id: id, t_prod_schemaID: t_schema_id }
+                where: { t_loyalProg_id: id, t_schema_id },
             });
 
-            const products = await LoyaltyProgram.findAll({});
-            return res.status(200).json({ message: "OK", data: products });
+            const data = await LoyaltyProgram.findAll({});
+            return res.status(200).json({ message: "OK", data: data });
         } catch (error) {
             res.status(500).send(error);
         }
