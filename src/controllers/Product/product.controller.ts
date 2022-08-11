@@ -43,6 +43,7 @@ export default class ProductController {
       res.status(500).send(error);
     }
   }
+
   async delete(req: Request, res: Response) {
     try {
       const { t_schema_id } = req.tenant_user;
