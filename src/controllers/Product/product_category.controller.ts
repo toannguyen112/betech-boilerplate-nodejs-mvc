@@ -8,24 +8,63 @@ export default class ProductCategoryController {
 
       const data = await ProductCategory.findAll({
         where: { t_prod_schemaID: t_schema_id },
-        include: [Product]
+        include: [Product],
       });
-      return res.status(200).json(data);
+
+      return res.status(200).json({ message: "OK", data });
     } catch (error) {
-      console.log(error);
+      res.status(500).send(error);
     }
   }
 
   async create(req: Request, res: Response) {
     try {
-      const products = await ProductCategory.create(req.body);
-      return res.status(200).json(products);
+      const { t_schema_id } = req.tenant_user;
+      await ProductCategory.create({
+        t_schema_id: t_schema_id,
+        ...req.body,
+      });
+
+      const categories = await ProductCategory.findAll({});
+      return res.status(200).json({ message: "OK", data: categories });
     } catch (error) {
-      console.log(error);
+      res.status(500).send(error);
     }
   }
 
-  async update(req: Request, res: Response) { }
+  async update(req: Request, res: Response) {
+    try {
+      const { t_schema_id } = req.tenant_user;
+      const { id, body } = req.params;
 
-  async delete(req: Request, res: Response) { }
+      await ProductCategory.update(
+        { body }, {
+        where: {
+          t_prodCate_id: id,
+          t_schema_id: t_schema_id,
+        },
+      }
+      );
+
+      const categories = await ProductCategory.findAll({});
+
+      return res.status(200).json({ message: "OK", data: categories });
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  }
+  async delete(req: Request, res: Response) {
+    try {
+      const { t_schema_id } = req.tenant_user;
+      const { id } = req.params;
+      await Product.destroy({
+        where: { t_prod_id: id, t_prod_schemaID: t_schema_id },
+      });
+
+      const products = await Product.findAll({});
+      return res.status(200).json({ message: "OK", data: products });
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  }
 }
