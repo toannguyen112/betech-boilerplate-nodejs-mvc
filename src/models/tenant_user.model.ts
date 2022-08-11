@@ -1,6 +1,8 @@
 import { Table, Column, Model, CreatedAt, UpdatedAt, ForeignKey, BelongsTo, PrimaryKey, BeforeCreate, BeforeSave, DataType } from "sequelize-typescript";
 import { Request, Response } from "express";
-import { env } from "process";
+import dotenv from "dotenv";
+dotenv.config();
+
 const jwt = require("jsonwebtoken");
 
 import Helper from "../utils/helpers";
@@ -102,8 +104,8 @@ class TenantUser extends Model {
                             t_usr_name: foundUser.t_usr_name,
                         },
                     },
-                    env.SERVER_JWT_SECRET,
-                    { expiresIn: env.SERVER_JWT_TIMEOUT }
+                    process.env.SERVER_JWT_SECRET,
+                    { expiresIn: process.env.SERVER_JWT_TIMEOUT }
                 );
 
                 foundUser.tokens = foundUser.tokens ? foundUser.tokens.concat({ token }) : [{ token }];
