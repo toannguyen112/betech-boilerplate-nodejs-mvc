@@ -1,10 +1,11 @@
 import { Table, Column, Model, CreatedAt, UpdatedAt, ForeignKey, BelongsTo, PrimaryKey, BeforeCreate, BeforeSave, DataType } from "sequelize-typescript";
 import { Request, Response } from "express";
+import { env } from "process";
+const jwt = require("jsonwebtoken");
+
 import Helper from "../utils/helpers";
 import Tenant from "./tenant.model";
 import bcrypt from "bcrypt";
-import { env } from "process";
-const jwt = require("jsonwebtoken");
 @Table({
     tableName: "tenant_users",
     timestamps: true,
