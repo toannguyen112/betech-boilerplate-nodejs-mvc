@@ -1,16 +1,45 @@
 import { Request, Response } from "express";
+import BenefitType from "../../models/benefit_type.model";
 import LoyaltyProgram from "../../models/loyalty_program.model";
+import LoyaltyPromotion from "../../models/loyalty_promotion.model";
 export default class LoyaltyProgramController {
     async index(req: Request, res: Response) {
         try {
             const { t_schema_id } = req.tenant_user;
-            const data: LoyaltyProgram[] = await LoyaltyProgram.findAll({ where: { t_schema_id: t_schema_id } });
+            const { id } = req.params;
+
+            const data: LoyaltyProgram[] = await LoyaltyProgram.findAll({
+                where: {
+                    t_loyalProg_id: id,
+                    t_schema_id
+                },
+
+            });
             return res.status(200).json({
                 success: true,
                 message: "OK",
                 data: data,
             });
         } catch (error) {
+            return res.status(500).send(error);
+        }
+    }
+
+    async show(req: Request, res: Response) {
+        try {
+            const { t_schema_id } = req.tenant_user;
+            const data: LoyaltyProgram = await LoyaltyProgram.findOne({
+                where: { t_schema_id: t_schema_id },
+                include: [BenefitType]
+            });
+
+            return res.status(200).json({
+                success: true,
+                message: "OK",
+                data: data,
+            });
+        } catch (error) {
+            console.log(error);
             return res.status(500).send(error);
         }
     }

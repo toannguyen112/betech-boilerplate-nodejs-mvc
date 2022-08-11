@@ -1,4 +1,5 @@
 import { Table, Column, PrimaryKey, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo } from "sequelize-typescript";
+import LoyaltyProgram from "./loyalty_program.model";
 import Tenant from "./tenant.model";
 
 @Table({
@@ -15,6 +16,10 @@ class LoyaltyPromotion extends Model {
     @ForeignKey(() => Tenant)
     @Column
     t_schema_id?: string;
+
+    @ForeignKey(() => LoyaltyProgram)
+    @Column
+    t_loyaPrm_loyaProgId?: string;
 
     @Column
     t_loyalProg_name?: string;
