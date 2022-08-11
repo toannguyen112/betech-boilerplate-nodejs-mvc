@@ -7,7 +7,7 @@ export default class ProductCategoryController {
       const { t_schema_id } = req.tenant_user;
 
       const data = await ProductCategory.findAll({
-        where: { t_prod_schemaID: t_schema_id },
+        where: { t_schema_id },
         include: [Product],
       });
 
