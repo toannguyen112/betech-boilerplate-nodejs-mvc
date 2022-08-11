@@ -22,10 +22,10 @@ export default class TenantUserController {
     async profile(req: Request, res: Response) {
         try {
             const tenant = req.tenant_user;
-            return res.status(200).send(tenant);
+            return res.status(200).json(tenant);
 
         } catch (error) {
-            res.status(500);
+            res.status(500).send(error);
         }
     }
 }

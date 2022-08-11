@@ -1,10 +1,21 @@
 import dotenv from "dotenv";
+import express from "express";
+
 import { Sequelize } from "sequelize-typescript";
 import path from "path";
 dotenv.config();
+
+const ssl = {
+  ssl: {
+    require: true,
+    rejectUnauthorized: false,
+  },
+};
 export default class SequelizeService {
+
   static async init() {
     try {
+
       let sequelize = new Sequelize({
         dialect: "postgres",
         host: process.env.DB_HOST,
@@ -14,11 +25,7 @@ export default class SequelizeService {
         define: {
           timestamps: true,
         },
-        dialectOptions: {
-          ssl: {
-            rejectUnauthorized: false
-          }
-        },
+        dialectOptions: express().get('env') === 'production' ? ssl : {},
       });
 
       // init sequelize model
@@ -30,6 +37,4 @@ export default class SequelizeService {
       throw error;
     }
   }
-};
-
-
+}

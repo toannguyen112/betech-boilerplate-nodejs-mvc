@@ -4,12 +4,17 @@ import LoyaltyProgram from "./loyalty_program.model";
 import ProductCategory from "./product_category.model";
 import Tenant from "./tenant.model";
 
+enum Status {
+    ACTIVE = "ACTIVE",
+    INACTIVE = "INACTIVE",
+}
+
 @Table({
     tableName: "products",
     timestamps: true,
 })
-
 export default class Product extends Model {
+
     @PrimaryKey
     @Column({
         autoIncrement: false,
@@ -87,11 +92,10 @@ export default class Product extends Model {
 
     // relationship
     @BelongsTo(() => ProductCategory)
-    product_category!: ProductCategory
+    product_category!: ProductCategory;
 
     @BeforeCreate
     static randomId(instance: Product, options: any) {
         instance.t_prod_id = `PRO${Helper.randomString(20)}`;
     }
 }
-
