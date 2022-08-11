@@ -14,14 +14,9 @@ export default class SequelizeService {
         define: {
           timestamps: true,
         },
-        dialectOptions: {
-          ssl: {
-            rejectUnauthorized: false
-          }
-        },
+        dialectOptions: {},
       });
 
-      // init sequelize model
       sequelize.addModels([path.resolve(__dirname, `../models/`)]);
 
       console.log("Database service initialized");

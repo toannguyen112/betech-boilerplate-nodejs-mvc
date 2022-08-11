@@ -7,12 +7,12 @@ export default class ProductController {
     try {
       const { t_schema_id } = req.tenant_user;
 
-      const products = await Product.findAll({
+      const data = await Product.findAll({
         where: { t_prod_schemaID: t_schema_id },
         include: ProductCategory
       });
 
-      return res.status(200).json(products);
+      return res.status(200).json({ message: "OK", data });
     } catch (error) {
       res.status(500).send(error);
     }

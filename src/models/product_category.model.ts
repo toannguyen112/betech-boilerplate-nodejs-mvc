@@ -1,5 +1,7 @@
-import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, PrimaryKey } from "sequelize-typescript";
+import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, PrimaryKey, HasMany, BeforeCreate } from "sequelize-typescript";
+import Helper from "../utils/helpers";
 import LoyaltyProgram from "./loyalty_program.model";
+import Product from "./product.model";
 import Tenant from "./tenant.model";
 @Table({
     tableName: 'product_categories',
@@ -9,6 +11,7 @@ export default class ProductCategory extends Model {
     @PrimaryKey
     @Column({
         autoIncrement: false,
+        unique: true
     })
     t_prodCate_id?: string;
 
@@ -46,6 +49,15 @@ export default class ProductCategory extends Model {
 
     @UpdatedAt
     t_prodCate_lastModified_date?: Date;
+
+    // relationship
+    @HasMany(() => Product)
+    products!: Product
+
+    @BeforeCreate
+    static randomId(instance: ProductCategory, options: any) {
+        instance.t_prodCate_id = `PRC${Helper.randomString(20)}`;
+    }
 }
 
 
