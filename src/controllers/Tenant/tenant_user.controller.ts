@@ -17,7 +17,6 @@ export default class TenantUserController {
 
     async logout(req: Request, res: Response) {
         new TenantUser().handleLogout(req, res);
-
     }
 
     async profile(req: Request, res: Response) {

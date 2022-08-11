@@ -125,9 +125,9 @@ class TenantUser extends Model {
         try {
             const { t_usr_usrName, t_usr_Password, t_usr_name, t_usr_Email, t_usr_Phone } = req.body;
             const t_password = await this.hashPassword(t_usr_Password);
-
+            const tenantAdmin = await Tenant.findOne();
             const data = await TenantUser.create({
-                t_schema_id: "SCHLjvkoIusqVLOWa8pw1ir",
+                t_schema_id: tenantAdmin.t_schema_id,
                 t_usr_name: t_usr_name,
                 t_usr_usrName: t_usr_usrName,
                 t_usr_Password: t_password,
