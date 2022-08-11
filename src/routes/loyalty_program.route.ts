@@ -4,7 +4,7 @@ import LoyaltyProgramController from "../controllers/Loyalty/loyalty_program.con
 const route: Router = Router();
 
 route.get("/loyalty-programs", auth, new LoyaltyProgramController().index);
-route.post("/loyalty-programs", auth, new LoyaltyProgramController().create);
+route.post("/loyalty-programs/create", auth, new LoyaltyProgramController().create);
 route.put("/loyalty-programs/update/:id", auth, new LoyaltyProgramController().update);
 route.delete("/loyalty-programs/delete/:id", auth, new LoyaltyProgramController().delete);
 

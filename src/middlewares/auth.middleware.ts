@@ -22,6 +22,7 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
 
         req.tenant_user = tenant;
         req.token = token;
+        global.user = tenant;
 
         next();
     } catch (err) {

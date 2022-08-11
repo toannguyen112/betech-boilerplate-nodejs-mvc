@@ -1,4 +1,6 @@
-import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, PrimaryKey } from "sequelize-typescript";
+import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, PrimaryKey, BeforeCreate } from "sequelize-typescript";
+import { Request } from "express";
+import Helper from "../utils/helpers";
 import Tenant from "./tenant.model";
 @Table({
     tableName: "loyalty_programs",
@@ -56,6 +58,14 @@ class LoyaltyProgram extends Model {
 
     @BelongsTo(() => Tenant)
     tenant?: Tenant
+
+    @BeforeCreate
+    static randomId(instance: LoyaltyProgram) {
+        const { t_schema_id } = global.user;
+
+        instance.t_loyalProg_id = `LOY${Helper.randomString(20)}`;
+        instance.t_schema_id = t_schema_id;
+    }
 }
 
 export default LoyaltyProgram;
