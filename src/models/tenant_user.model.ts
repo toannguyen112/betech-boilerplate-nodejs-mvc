@@ -127,7 +127,7 @@ class TenantUser extends Model {
             const t_password = await this.hashPassword(t_usr_Password);
 
             const data = await TenantUser.create({
-                t_schema_id: "SCHjww9ud21p1",
+                t_schema_id: "SCHLjvkoIusqVLOWa8pw1ir",
                 t_usr_name: t_usr_name,
                 t_usr_usrName: t_usr_usrName,
                 t_usr_Password: t_password,
@@ -140,8 +140,7 @@ class TenantUser extends Model {
                 data,
             });
         } catch (error) {
-            console.log(error);
-            res.status(500);
+            res.status(500).send(error);
         }
     }
 
