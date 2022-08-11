@@ -19,12 +19,13 @@ export default class ProductController {
   async create(req: Request, res: Response) {
     try {
       const { t_schema_id } = req.tenant_user;
-      const data = await Product.create({
+      await Product.create({
         t_prod_schemaID: t_schema_id,
         ...req.body,
       });
 
-      return res.status(200).json({ message: "OK", data });
+      const products = await Product.findAll({});
+      return res.status(200).json({ message: "OK", data: products });
     } catch (error) {
       res.status(500).send(error);
     }
@@ -48,11 +49,12 @@ export default class ProductController {
     try {
       const { t_schema_id } = req.tenant_user;
       const { id } = req.params;
-      const data = await Product.destroy({
+      await Product.destroy({
         where: { t_prod_id: id, t_prod_schemaID: t_schema_id }
       });
 
-      return res.status(200).json({ message: "OK", data });
+      const products = await Product.findAll({});
+      return res.status(200).json({ message: "OK", data: products });
     } catch (error) {
       res.status(500).send(error);
     }
