@@ -1,6 +1,5 @@
 import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, PrimaryKey } from "sequelize-typescript";
 import LoyaltyProgram from "./loyalty_program.model";
-import Tenant from "./tenant.model";
 import VoucherDefinition from "./voucher_definition.model";
 
 @Table({

@@ -1,6 +1,10 @@
-import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, PrimaryKey } from "sequelize-typescript";
+import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, PrimaryKey, BeforeCreate } from "sequelize-typescript";
+import Helper from "../utils/helpers";
 import Benefit from "./benefit.model";
+import LoyaltyMember from "./loyalty_member.model";
 import LoyaltyProgram from "./loyalty_program.model";
+import LoyaltyPromotion from "./loyalty_promotion.model";
+import VoucherDefinition from "./voucher_definition.model";
 
 @Table({
     tableName: "vouchers",
@@ -11,23 +15,86 @@ class Voucher extends Model {
     @Column({
         autoIncrement: false,
     })
-    t_vouchr_id?: string;
+    t_vouchr_id: string;
 
-    @ForeignKey(() => LoyaltyProgram)
+    @ForeignKey(() => VoucherDefinition)
     @Column
-    t_vouchr_vchDefId?: string;
+    t_vouchr_vchDefId: string;
 
     @ForeignKey(() => Benefit)
     @Column
-    t_vouchr_benfId?: string;
+    t_vouchr_benfId: string;
+
+    @ForeignKey(() => LoyaltyPromotion)
+    @Column
+    t_vouchr_loyaPromId: string;
 
     @ForeignKey(() => LoyaltyProgram)
     @Column
-    t_vouchr_loyaPromId?: string;
+    t_vouchr_loyaProgId: string;
 
     @ForeignKey(() => LoyaltyProgram)
     @Column
-    t_vouchr_loyaProgId?: string;
+    t_vouchr_loyaMemId: string;
+
+    @Column
+    t_vouchr_name: string;
+
+    @Column
+    t_vouchr_vchType: string;
+
+    @Column
+    t_vouchr_status: string;
+
+    @Column
+    t_vouchr_PtsToBurn: number;
+
+    @Column
+    t_vouchr_disctedVal: number;
+
+    @Column
+    t_vouchr_disctedPerc: number;
+
+    @Column
+    t_vouchr_maxDisctedVal: number;
+
+    @Column
+    t_vouchr_startDate: Date;
+
+    @Column
+    t_vouchr_endDate: Date;
+
+    @Column
+    t_vouchr_extDate: Date;
+
+    @Column
+    t_vouchr_usedDate: Date;
+
+    @Column
+    t_vouchr_issuedSrc: string;
+
+    @Column
+    t_vouchr_vchCode: string;
+
+    @Column
+    t_vouchr_recordOwner: string;
+
+    @Column
+    t_vouchr_created_by: string;
+
+    @CreatedAt
+    t_vouchr_created_date: Date;
+
+    @Column
+    t_vouchr_lastModified_by: string;
+
+    @UpdatedAt
+    t_vouchr_lastModified_date: Date;
+
+    @BeforeCreate
+    static randomId(instance: Voucher) {
+        instance.t_vouchr_id = `VOU${Helper.randomString(20)}`;
+    }
 }
 
 export default Voucher;

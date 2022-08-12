@@ -4,8 +4,7 @@ import ProductCategory from "../../models/product_category.model";
 export default class ProductCategoryController {
   async index(req: Request, res: Response) {
     try {
-      const { t_schema_id } = req.tenant_user;
-
+      const { t_schema_id } = global.user;
       const data = await ProductCategory.findAll({
         where: { t_schema_id },
         include: [Product],
@@ -19,7 +18,7 @@ export default class ProductCategoryController {
 
   async create(req: Request, res: Response) {
     try {
-      const { t_schema_id } = req.tenant_user;
+      const { t_schema_id } = global.user;
       await ProductCategory.create({
         t_schema_id: t_schema_id,
         ...req.body,
@@ -34,7 +33,7 @@ export default class ProductCategoryController {
 
   async update(req: Request, res: Response) {
     try {
-      const { t_schema_id } = req.tenant_user;
+      const { t_schema_id } = global.user;
       const { id, body } = req.params;
 
       await ProductCategory.update(
@@ -55,7 +54,7 @@ export default class ProductCategoryController {
   }
   async delete(req: Request, res: Response) {
     try {
-      const { t_schema_id } = req.tenant_user;
+      const { t_schema_id } = global.user;
       const { id } = req.params;
       await Product.destroy({
         where: { t_prod_id: id, t_prod_schemaID: t_schema_id },

@@ -85,8 +85,6 @@ module.exports = {
         type: Sequelize.STRING,
       },
 
-      // timestamp
-
       t_vouchr_created_by: {
         allowNull: true,
         type: Sequelize.STRING,
