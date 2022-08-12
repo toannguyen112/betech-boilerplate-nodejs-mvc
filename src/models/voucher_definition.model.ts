@@ -1,7 +1,18 @@
 import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, PrimaryKey, BeforeCreate } from "sequelize-typescript";
 import Helper from "../utils/helpers";
 import LoyaltyProgram from "./loyalty_program.model";
+import LoyaltyPromotion from "./loyalty_promotion.model";
 
+enum VoucherType {
+    Percentage = "Percentage",
+    Amount = "Amount",
+}
+
+enum Status {
+    Draft = "Draft",
+    Active = "Active",
+    Deactivate = "Deactivate",
+}
 @Table({
     tableName: "voucher_definitions",
     timestamps: true,
@@ -26,6 +37,7 @@ class VoucherDefinition extends Model {
     @Column
     t_vouchrDef_Status?: boolean;
 
+    @ForeignKey(() => LoyaltyPromotion)
     @Column
     t_vouchrDef_loyaPromId?: string;
 

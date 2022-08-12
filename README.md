@@ -1,11 +1,11 @@
-# loyalty
+# wsp-loyalty
 
 ## Getting Started
 
 ```bash
 
 # Enter into the directory
-cd loyalty/
+cd wsp-loyalty/
 
 # Install the dependencies
 yarn
@@ -58,4 +58,4 @@ yarn sequelize db:seed:all
 <h5 align="center">
   ☕ Code and Coffee
 </h5>
-# tn-loyalty
+# wsp-loyalty
