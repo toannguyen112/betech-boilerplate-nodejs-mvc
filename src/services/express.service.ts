@@ -1,5 +1,6 @@
 import express from "express";
 import { env } from "process";
+import cors from "cors";
 import compression from "compression";
 import fs from "fs";
 import bodyParser from "body-parser";
@@ -19,6 +20,7 @@ export default class ExpressService {
         routes.push(route[routeName]);
       }
 
+      server.use(cors());
       server.use(compression());
       server.use(bodyParser.urlencoded({ extended: true }));
       server.use(bodyParser.json());
