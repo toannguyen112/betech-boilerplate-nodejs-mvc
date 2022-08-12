@@ -6,15 +6,8 @@ export default class LoyaltyProgramController {
     async index(req: Request, res: Response) {
         try {
             const { t_schema_id } = req.tenant_user;
-            const { id } = req.params;
 
-            const data: LoyaltyProgram[] = await LoyaltyProgram.findAll({
-                where: {
-                    t_loyalProg_id: id,
-                    t_schema_id
-                },
-
-            });
+            const data: LoyaltyProgram[] = await LoyaltyProgram.findAll({ where: { t_schema_id } });
             return res.status(200).json({
                 success: true,
                 message: "OK",
@@ -30,7 +23,7 @@ export default class LoyaltyProgramController {
             const { t_schema_id } = req.tenant_user;
             const data: LoyaltyProgram = await LoyaltyProgram.findOne({
                 where: { t_schema_id: t_schema_id },
-                include: [BenefitType]
+                include: [BenefitType, LoyaltyPromotion]
             });
 
             return res.status(200).json({

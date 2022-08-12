@@ -51,7 +51,7 @@ module.exports = {
 
       t_loyaPrm_status: {
         allowNull: true,
-        type: Sequelize.BOOLEAN,
+        type: Sequelize.STRING,
       },
 
       t_loyaPrm_priority: {
