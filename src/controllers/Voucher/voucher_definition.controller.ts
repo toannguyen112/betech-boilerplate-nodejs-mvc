@@ -16,9 +16,8 @@ export default class VoucherDefinitionController {
 
     async show(req: Request, res: Response) {
         try {
-            const { t_schema_id } = global.user;
             const data: VoucherDefinition = await VoucherDefinition.findOne({
-                where: { t_schema_id },
+                where: { t_vouchrDef_id: req.params.id },
             });
 
             return res.status(200).json({
@@ -49,8 +48,7 @@ export default class VoucherDefinitionController {
     async update(req: Request, res: Response) {
         try {
             const id: string = req.params.id;
-            await VoucherDefinition.update(req.body, { where: { t_vouchrDef_id: id } });
-            const data = await VoucherDefinition.findAll({});
+            const data = await VoucherDefinition.update(req.body, { where: { t_vouchrDef_id: id } });
             return res.status(200).json({
                 message: "Update success",
                 data,
@@ -64,10 +62,8 @@ export default class VoucherDefinitionController {
         try {
             const id: string = req.params.id;
             await VoucherDefinition.destroy({ where: { t_vouchrDef_id: id } });
-            const data = await VoucherDefinition.findAll({});
             return res.status(200).json({
                 message: "Remove success",
-                data,
             });
         } catch (error) {
             return res.status(500).send(error);

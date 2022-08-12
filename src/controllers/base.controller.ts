@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 export default class BaseController {
-    index(req: Request, res: Response) { }
+    index() { }
     create() { }
     update() { }
     delete() { }
