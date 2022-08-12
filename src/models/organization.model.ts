@@ -4,7 +4,7 @@ import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, Prim
     tableName: "organizations",
     timestamps: true,
 })
-class Organization extends Model {
+export default class Organization extends Model {
     @PrimaryKey
     @Column({
         autoIncrement: false,
@@ -12,4 +12,4 @@ class Organization extends Model {
     org_id?: string;
 }
 
-export default Organization;
+

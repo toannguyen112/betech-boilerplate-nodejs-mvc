@@ -1,4 +1,5 @@
-import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, PrimaryKey } from "sequelize-typescript";
+import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, PrimaryKey, BeforeCreate } from "sequelize-typescript";
+import Helper from "../utils/helpers";
 import LoyaltyProgram from "./loyalty_program.model";
 
 @Table({
@@ -84,6 +85,11 @@ class VoucherDefinition extends Model {
 
     @UpdatedAt
     t_vouchrDef_lastModified_date?: Date;
+
+    @BeforeCreate
+    static randomId(instance: VoucherDefinition) {
+        instance.t_vouchrDef_id = `VOD${Helper.randomString(20)}`;
+    }
 }
 
 export default VoucherDefinition;

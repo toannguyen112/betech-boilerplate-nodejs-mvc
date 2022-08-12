@@ -4,7 +4,7 @@ import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, Prim
     tableName: "promotion_currencies",
     timestamps: true,
 })
-class PromotionCurrency extends Model {
+export default class PromotionCurrency extends Model {
     @PrimaryKey
     @Column({
         autoIncrement: false,
@@ -12,4 +12,4 @@ class PromotionCurrency extends Model {
     t_vouchr_id?: string;
 }
 
-export default PromotionCurrency;
+

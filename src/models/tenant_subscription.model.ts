@@ -5,7 +5,7 @@ import LoyaltyProgram from "./loyalty_program.model";
     tableName: "tenant_subscriptions",
     timestamps: true,
 })
-class TenantSubscription extends Model {
+export default class TenantSubscription extends Model {
     @PrimaryKey
     @Column({
         autoIncrement: false,
@@ -17,4 +17,4 @@ class TenantSubscription extends Model {
     t_vouchr_vchDefId?: string;
 }
 
-export default TenantSubscription;
+

@@ -5,12 +5,11 @@ import LoyaltyMember from "./loyalty_member.model";
 import LoyaltyProgram from "./loyalty_program.model";
 import LoyaltyPromotion from "./loyalty_promotion.model";
 import VoucherDefinition from "./voucher_definition.model";
-
 @Table({
     tableName: "vouchers",
     timestamps: true,
 })
-class Voucher extends Model {
+export default class Voucher extends Model {
     @PrimaryKey
     @Column({
         autoIncrement: false,
@@ -33,7 +32,7 @@ class Voucher extends Model {
     @Column
     t_vouchr_loyaProgId: string;
 
-    @ForeignKey(() => LoyaltyProgram)
+    @ForeignKey(() => LoyaltyMember)
     @Column
     t_vouchr_loyaMemId: string;
 
@@ -91,10 +90,24 @@ class Voucher extends Model {
     @UpdatedAt
     t_vouchr_lastModified_date: Date;
 
+    @BelongsTo(() => VoucherDefinition)
+    voucher_definition: VoucherDefinition;
+
+    @BelongsTo(() => Benefit)
+    benefit!: Benefit;
+
+    @BelongsTo(() => LoyaltyPromotion)
+    loyalty_promotion: LoyaltyPromotion;
+
+    @BelongsTo(() => LoyaltyProgram)
+    loyalty_program: LoyaltyProgram;
+
+    @BelongsTo(() => LoyaltyMember)
+    loyalty_member: LoyaltyMember;
+
     @BeforeCreate
     static randomId(instance: Voucher) {
         instance.t_vouchr_id = `VOU${Helper.randomString(20)}`;
     }
 }
 
-export default Voucher;
