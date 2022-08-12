@@ -82,7 +82,7 @@ class TenantUser extends Model {
             return res.status(200).json(tenant_users);
         } catch (error) {
             console.log(error);
-            res.status(500);
+            res.status(500).send(error);
         }
     }
 
@@ -120,7 +120,7 @@ class TenantUser extends Model {
             }
         } catch (error) {
             console.log(error);
-            res.status(500);
+            res.status(500).send(error);
         }
     }
 
@@ -158,7 +158,7 @@ class TenantUser extends Model {
             res.status(200).send("Logout successfully");
         } catch (error) {
             console.log(error);
-            res.status(500);
+            res.status(500).send(error);
         }
     }
 }
