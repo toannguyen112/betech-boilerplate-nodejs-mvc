@@ -22,7 +22,7 @@ export default class LoyaltyProgramController {
         try {
             const { t_schema_id } = global.user;
             const data: LoyaltyProgram = await LoyaltyProgram.findOne({
-                where: { t_schema_id: t_schema_id },
+                where: { t_schema_id },
                 include: [BenefitType, LoyaltyPromotion]
             });
 
