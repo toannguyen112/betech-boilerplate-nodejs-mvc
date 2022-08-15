@@ -46,7 +46,6 @@ export default class ProductCategoryController {
       );
 
       const categories = await ProductCategory.findAll({});
-
       return res.status(200).json({ message: "OK", data: categories });
     } catch (error) {
       res.status(500).send(error);
