@@ -6,7 +6,7 @@ const route: Router = Router();
 
 route.get("/", new HomeController().index);
 route.post("/model-data", (req: Request, res: Response) => {
-    new HelperController().getModelData(req, res);
+    return new HelperController().getModelData(req, res);
 });
 
 export default route;
