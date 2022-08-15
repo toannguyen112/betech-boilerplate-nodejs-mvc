@@ -23,7 +23,7 @@ Variables for the environment
 
 | Option             | Description                         |
 | ------------------ | ----------------------------------- |
-| SERVER_PORT        | Port the server will run on         |
+| PORT               | Port the server will run on         |
 | SERVER_JWT         | true or false                       |
 | SERVER_JWT_SECRET  | JWT secret                          |
 | SERVER_JWT_TIMEOUT | JWT duration time                   |
@@ -55,7 +55,4 @@ yarn sequelize db:migrate:undo:all
 yarn sequelize db:seed:all
 ```
 
-<h5 align="center">
-  ☕ Code and Coffee
-</h5>
 # wsp-loyalty
