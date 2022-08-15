@@ -23,11 +23,13 @@ async function modelNamespace(req: Request): Promise<any> {
 }
 
 async function onlyFields(req: Request, model) {
+
     let items;
-    if (req.body.only) {
-        const arrOnly: string[] = Object.values(req.body.only);
+    const { only, method } = req.body;
+    if (only) {
+        const arrOnly: string[] = Object.values(only);
         items = await model.findAll({ attributes: arrOnly });
-    } else if (req.body.method === "get") {
+    } else if (method === "get") {
         items = await model.findAll({});
     }
 
