@@ -16,6 +16,7 @@ export default class ExpressService {
 
       for (const file of routeFiles) {
         const route = await import(`../routes/${file}`);
+
         const routeName = Object.keys(route)[0];
         routes.push(route[routeName]);
       }

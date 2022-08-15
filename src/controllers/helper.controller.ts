@@ -1,42 +1,26 @@
-import express from "express";
+import { Request, Response } from "express";
+
 export default class HelperController {
-    static getModelData(req, res) {
-        return "123";
-
-        let model;
-        let items;
-        let method;
-
-        if (req.body.const) {
-            model = this.modelNamespace(req);
-            items = `${items}/${model}`;
-        }
-        else {
-            model = this.modelNamespace(req);
-            model = new model;
-            method = req.body.method;
-        }
-
-        if (req.body.params) {
-            items = model.method(req.body.params);
-        }
-        else {
-            items = model.method;
-        }
-
-        items = this.onlyFields(req, items);
+    public async getModelData(req: Request, res: Response) {
+        let model: any = await this.modelNamespace(req);
+        let items = await this.onlyFields(req, model);
+        return res.json(items);
     }
 
-    static modelNamespace(req: express.Request) {
+    private async modelNamespace(req: Request): Promise<any> {
         const model = req.body.model;
-        return `src/models/${model}`;
+        const modelName = await import(`../models/${model}.model.ts`);
+        return modelName.default;
     }
 
-    static onlyFields(req: express.Request, items) {
-        if (req.body.only) {
-            return items.only(req.body.only);
-        } else if (req.body.method === 'get') {
-            return items.only('id', req.body.label, req.body.name);
+    private async onlyFields(req: Request, model: any) {
+        let items: any;
+        const { only, method } = req.body;
+        if (only) {
+            const arrOnly: string[] = Object.values(only);
+            items = await model.findAll({ attributes: arrOnly });
+        } else if (method === "get") {
+            items = await model.findAll({});
         }
 
         return items;
