@@ -12,12 +12,12 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
             return res.status(401).send("Not found token");
         }
 
-        const decoded = jwt.verify(token, SERVER_JWT_SECRET);
-        const tenant = await TenantUser.findOne({ where: { t_usr_id: decoded.tenant_user.t_usr_id } });
-        const hasToken = tenant?.tokens.find((t: { token: string }) => t.token === token);
+        const decoded: any = jwt.verify(token, SERVER_JWT_SECRET);
+        const tenant: TenantUser = await TenantUser.findOne({ where: { t_usr_id: decoded.tenant_user.t_usr_id } });
+        const hasToken: boolean = tenant?.tokens.find((t: { token: string }) => t.token === token);
 
         if (!hasToken || !tenant) {
-            return res.status(500).send("Please authenticate");
+            throw new Error();
         }
 
         req.tenant_user = tenant;
