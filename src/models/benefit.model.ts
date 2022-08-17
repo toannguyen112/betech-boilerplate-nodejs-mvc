@@ -2,7 +2,6 @@ import { Table, Column, ForeignKey, Model, CreatedAt, UpdatedAt, BelongsTo, Prim
 import BenefitType from "./benefit_type.model";
 import LoyaltyMember from "./loyalty_member.model";
 import LoyaltyProgram from "./loyalty_program.model";
-
 @Table({
     tableName: "benefits",
     timestamps: true,

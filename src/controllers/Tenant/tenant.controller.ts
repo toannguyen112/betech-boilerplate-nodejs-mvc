@@ -8,7 +8,10 @@ export default class TenantController {
     async index(req: Request, res: Response) {
         try {
             const tenants = await Tenant.findAll({});
-            return res.status(200).json(tenants);
+            
+            return res.status(200).json({
+                data: tenants || [{name: 1, description: "ok nek"}],
+            });
         } catch (error) {
             res.status(500);
         }
