@@ -6,13 +6,13 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         field: "t_indPrf_id",
       },
 
       t_indPrf_contactId: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         references: {
           model: "individuals",
           key: "t_ind_id",
@@ -21,7 +21,7 @@ module.exports = {
 
       t_indPrf_name: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_indPrf_genPro: {
@@ -47,12 +47,12 @@ module.exports = {
       // timestamp
       t_indPrf_recordOwner: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_indPrf_created_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       createdAt: {
@@ -63,7 +63,7 @@ module.exports = {
 
       t_indPrf_lastModified_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       updatedAt: {

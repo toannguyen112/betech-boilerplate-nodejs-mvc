@@ -7,23 +7,23 @@ module.exports = {
         allowNull: false,
         unique: true,
         primaryKey: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         field: "org_id",
       },
 
       crm_org_id: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       crm_contact_id: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       primary_contact_name: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       primary_contact_email: {
@@ -33,22 +33,22 @@ module.exports = {
 
       org_name: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       record_owner: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       created_usr: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       last_modified_usr: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       createdAt: {

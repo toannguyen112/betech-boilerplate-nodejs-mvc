@@ -6,13 +6,13 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         field: "usr_id",
       },
 
       usr_name: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       usr_email: {
@@ -22,12 +22,12 @@ module.exports = {
 
       usr_username: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       usr_password: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       is_super_admin: {
@@ -38,17 +38,17 @@ module.exports = {
 
       record_owner: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       created_usr: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       last_modified_usr: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       createdAt: {

@@ -7,13 +7,13 @@ module.exports = {
         allowNull: false,
         unique: true,
         primaryKey: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         field: "t_prodCate_id",
       },
 
       t_loyalProg_id: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         references: {
           model: "loyalty_programs",
           key: "t_loyalProg_id",
@@ -22,7 +22,7 @@ module.exports = {
 
       t_schema_id: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         references: {
           model: "tenants",
           key: "t_schema_id",
@@ -31,12 +31,12 @@ module.exports = {
 
       t_prodCate_name: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_prodCate_code: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_prodCate_brand: {
@@ -51,17 +51,17 @@ module.exports = {
 
       t_prodCate_recordOwner: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_prodCate_created_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_prodCate_lastModified_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       createdAt: {

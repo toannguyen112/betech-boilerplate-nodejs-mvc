@@ -6,13 +6,13 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         field: "t_ind_id",
       },
 
       // t_ind_bizId: {
       //   allowNull: false,
-      //   type: Sequelize.STRING(200),
+      //   type: Sequelize.STRING,
       //   references: {
       //     model: "accounts",
       //     key: "account_id",
@@ -21,7 +21,7 @@ module.exports = {
 
       t_schema_id: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         references: {
           model: "tenants",
           key: "t_schema_id",
@@ -30,7 +30,7 @@ module.exports = {
 
       t_ind_name: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_ind_gender: {
@@ -45,7 +45,7 @@ module.exports = {
 
       t_ind_gender: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_ind_age: {
@@ -70,22 +70,22 @@ module.exports = {
 
       t_ind_phone_1: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_ind_phone_2: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_ind_ctzNumber: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_ind_passport: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_ind_custCode: {
@@ -105,7 +105,7 @@ module.exports = {
 
       t_ind_custImgURL: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
       t_ind_custSrce: {
         allowNull: false,
@@ -114,11 +114,11 @@ module.exports = {
 
       t_ind_addr1: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
       t_ind_addr2: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_ind_dist: {
@@ -133,7 +133,7 @@ module.exports = {
 
       t_ind_state: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_ind_postcode: {
@@ -154,12 +154,12 @@ module.exports = {
       // timestamp
       t_ind_recordOwner: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_ind_created_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       createdAt: {
@@ -170,7 +170,7 @@ module.exports = {
 
       t_ind_lastModified_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       updatedAt: {

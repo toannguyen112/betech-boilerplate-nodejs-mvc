@@ -7,7 +7,7 @@ module.exports = {
           "t_usrRole_id",
           {
             allowNull: true,
-            type: Sequelize.STRING(200),
+            type: Sequelize.STRING,
             references: {
               model: "tenant_user_role_permissions",
               key: "t_usrRole_id",

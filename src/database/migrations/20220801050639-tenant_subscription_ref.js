@@ -7,7 +7,7 @@ module.exports = {
           "org_id",
           {
             allowNull: true,
-            type: Sequelize.STRING(200),
+            type: Sequelize.STRING,
             references: {
               model: "organizations",
               key: "org_id",
@@ -21,7 +21,7 @@ module.exports = {
           "t_license_id",
           {
             allowNull: true,
-            type: Sequelize.STRING(200),
+            type: Sequelize.STRING,
             references: {
               model: "licenses",
               key: "license_id",
@@ -35,7 +35,7 @@ module.exports = {
           "t_schema_id",
           {
             allowNull: true,
-            type: Sequelize.STRING(200),
+            type: Sequelize.STRING,
             references: {
               model: "tenants",
               key: "t_schema_id",
@@ -49,7 +49,7 @@ module.exports = {
           "t_usrCreated",
           {
             allowNull: true,
-            type: Sequelize.STRING(200),
+            type: Sequelize.STRING,
             references: {
               model: "users",
               key: "usr_id",

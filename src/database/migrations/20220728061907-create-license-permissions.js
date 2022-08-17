@@ -7,13 +7,13 @@ module.exports = {
         allowNull: false,
         unique: true,
         primaryKey: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         field: "lic_permission_id",
       },
 
       license_id: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         references: {
           model: "licenses",
           key: "license_id",
@@ -22,7 +22,7 @@ module.exports = {
 
       lic_permission_name: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       usr_access: {
@@ -137,17 +137,17 @@ module.exports = {
 
       record_owner: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       created_usr: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       last_modified_usr: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       createdAt: {

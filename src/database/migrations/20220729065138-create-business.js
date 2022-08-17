@@ -6,13 +6,13 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         field: "t_biz_id",
       },
 
       t_schema_id: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         references: {
           model: "tenants",
           key: "t_schema_id",
@@ -21,17 +21,17 @@ module.exports = {
 
       t_biz_name: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_biz_typeAcc: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       // t_biz_parentAcc__r: {
       //   allowNull: false,
-      //   type: Sequelize.STRING(200),
+      //   type: Sequelize.STRING,
       //   references: {
       //     model: "accounts",
       //     key: "account_id",
@@ -40,7 +40,7 @@ module.exports = {
 
       // t_biz_mainInd: {
       //   allowNull: false,
-      //   type: Sequelize.STRING(200),
+      //   type: Sequelize.STRING,
       //   references: {
       //     model: "contacts",
       //     key: "contact_id",
@@ -54,22 +54,22 @@ module.exports = {
 
       t_biz_phone: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_biz_addr1: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_biz_addr2: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_biz_dist: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_biz_city: {
@@ -84,7 +84,7 @@ module.exports = {
 
       t_biz_postcode: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_biz_country: {
@@ -94,12 +94,12 @@ module.exports = {
 
       t_biz_website: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_biz_taxCode: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_biz_desc: {
@@ -110,17 +110,17 @@ module.exports = {
       // timestamp
       t_biz_recordOwner: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_biz_created_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_biz_lastModified_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       createdAt: {

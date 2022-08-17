@@ -7,13 +7,13 @@ module.exports = {
         allowNull: false,
         unique: true,
         primaryKey: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         field: "t_loyalProg_id",
       },
 
       t_schema_id: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         references: {
           model: "tenants",
           key: "t_schema_id",
@@ -22,11 +22,11 @@ module.exports = {
 
       t_loyalProg_name: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_loyalProg_status: {
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_loyalProg_transQuaPt: {
@@ -36,7 +36,7 @@ module.exports = {
 
       t_loyalProg_tierReCycle: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_loyalProg_tierStartDate: {
@@ -56,19 +56,19 @@ module.exports = {
       },
 
       t_loyalProg_recordOwner: {
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_loyalProg_created_by: {
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_loyalProg_recordOwner: {
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_loyalProg_lastModified_by: {
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       createdAt: {

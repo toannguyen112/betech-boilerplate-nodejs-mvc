@@ -6,13 +6,13 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         field: "t_indCons_id",
       },
 
       t_ind_id: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         references: {
           model: "individuals",
           key: "t_ind_id",
@@ -21,7 +21,7 @@ module.exports = {
 
       t_indCons_name: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_indCons_consent: {
@@ -57,12 +57,12 @@ module.exports = {
       // timestamp
       t_indCons_recordOwner: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_indCons_created_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       createdAt: {
@@ -73,7 +73,7 @@ module.exports = {
 
       t_indCons_lastModified_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       updatedAt: {

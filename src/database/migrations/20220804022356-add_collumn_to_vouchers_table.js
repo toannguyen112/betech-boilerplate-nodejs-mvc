@@ -7,7 +7,7 @@ module.exports = {
           "t_vouchr_vchDefId",
           {
             allowNull: true,
-            type: Sequelize.STRING(200),
+            type: Sequelize.STRING,
             references: {
               model: "voucher_definitions",
               key: "t_vouchrDef_id",
@@ -21,7 +21,7 @@ module.exports = {
           "t_vouchr_benfId",
           {
             allowNull: true,
-            type: Sequelize.STRING(200),
+            type: Sequelize.STRING,
             references: {
               model: "benefits",
               key: "t_benf_id",
@@ -35,7 +35,7 @@ module.exports = {
           "t_vouchr_loyaPromId",
           {
             allowNull: true,
-            type: Sequelize.STRING(200),
+            type: Sequelize.STRING,
             references: {
               model: "loyalty_promotions",
               key: "t_loyaPrm_id",
@@ -49,7 +49,7 @@ module.exports = {
           "t_vouchr_loyaProgId",
           {
             allowNull: true,
-            type: Sequelize.STRING(200),
+            type: Sequelize.STRING,
             references: {
               model: "loyalty_programs",
               key: "t_loyalProg_id",
@@ -63,7 +63,7 @@ module.exports = {
           "t_vouchr_loyaMemId",
           {
             allowNull: true,
-            type: Sequelize.STRING(200),
+            type: Sequelize.STRING,
             references: {
               model: "loyalty_members",
               key: "t_loyalMem_id",

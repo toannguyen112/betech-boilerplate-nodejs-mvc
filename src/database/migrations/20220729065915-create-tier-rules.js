@@ -6,13 +6,13 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         field: "t_tierRule_id",
       },
 
       t_tierRule_loyTierid: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         references: {
           model: "loyalty_tiers",
           key: "t_loyalTier_id",
@@ -21,7 +21,7 @@ module.exports = {
 
       t_tierRule_loyid: {
         allowNull: false,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
         references: {
           model: "loyalty_programs",
           key: "t_loyalProg_id",
@@ -30,12 +30,12 @@ module.exports = {
 
       t_tierRule_name: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_tierRule_status: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_tierRule_pointFrom: {
@@ -86,12 +86,12 @@ module.exports = {
       // timestamp
       t_tierRule_recordOwner: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       t_tierRule_created_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       createdAt: {
@@ -102,7 +102,7 @@ module.exports = {
 
       t_tierRule_lastModified_by: {
         allowNull: true,
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING,
       },
 
       updatedAt: {
