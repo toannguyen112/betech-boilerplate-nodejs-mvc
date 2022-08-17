@@ -34,7 +34,6 @@ module.exports = {
         t_prod_lastModified_by: faker.name.firstName(),
       });
     }
-
     await queryInterface.bulkInsert("products", data);
   },
 

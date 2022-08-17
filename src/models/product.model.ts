@@ -8,7 +8,6 @@ enum Status {
     ACTIVE = "ACTIVE",
     INACTIVE = "INACTIVE",
 }
-
 @Table({
     tableName: "products",
     timestamps: true,

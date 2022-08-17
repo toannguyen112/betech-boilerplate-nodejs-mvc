@@ -15,12 +15,24 @@ export default class HelperController {
 
     private async onlyFields(req: Request, model: any) {
         let items: any;
-        const { only, method } = req.body;
+        const { only, method, id } = req.body;
+
         if (only) {
             const arrOnly: string[] = Object.values(only);
             items = await model.findAll({ attributes: arrOnly });
         } else if (method === "get") {
             items = await model.findAll({});
+        }
+        else if (method === "show") {
+            items = await model.findOne({ where: { id: req.body.id } });
+        }
+
+        else if (method === "put") {
+            items = await model.put(req.body, { where: { id: req.body.id } });
+        }
+
+        else if (method === "delete") {
+            items = await model.destroy({ where: { id: req.body.id } });
         }
 
         return items;
